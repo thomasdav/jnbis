@@ -1,7 +1,9 @@
 package org.jnbis.internal.record.reader;
 
-import org.jnbis.internal.NistHelper;
+import java.nio.ByteBuffer;
+
 import org.jnbis.api.model.record.HighResolutionGrayscaleFingerprint;
+import org.jnbis.internal.NistHelper;
 
 /**
  * @author ericdsoto
@@ -10,29 +12,37 @@ public class HighResolutionGrayscaleFingerprintReader extends RecordReader {
 
     @Override
     public HighResolutionGrayscaleFingerprint read(NistHelper.Token token) {
-        if (token.pos >= token.buffer.length) {
-            throw new RuntimeException("T4::NULL pointer to T4 record");
-        }
 
         HighResolutionGrayscaleFingerprint fingerprint = new HighResolutionGrayscaleFingerprint();
 
-        //Assigning t4-Header values
-        Integer length = (int) readInt(token);
-        int fingerPrintNo = token.buffer[token.pos + 6];
+        ByteBuffer buffer = token.buffer;
+        
+        /* Total length of record, including field 001 */
+        int recordLength = buffer.getInt();
+        fingerprint.setLogicalRecordLength(recordLength);
 
-        int dataSize = length - 18;
-
-        if (token.pos + dataSize + 17 > token.buffer.length) {
-            dataSize += token.buffer.length - token.pos - 18;
+        int idc = buffer.get();
+        int imp = buffer.get();
+        int[] fgp = new int[6];
+        for (int f = 0; f < fgp.length; f++) {
+            fgp[f] = buffer.get();
         }
+        int isr = buffer.get();
+        int hll = buffer.getShort();
+        int vll = buffer.getShort();
+        int gca = buffer.get();
 
-        byte[] data = new byte[dataSize];
-        System.arraycopy(token.buffer, token.pos + 18, data, 0, data.length + 18 - 18);
+        byte[] data = new byte[buffer.remaining()];
+        buffer.get(data);
 
-        token.pos += length;
-        fingerprint.setImageDesignationCharacter(Integer.toString(fingerPrintNo));
+        fingerprint.setIdc(idc);
+        fingerprint.setImpressionType(imp);
+        fingerprint.setFingerPosition(fgp);
+        fingerprint.setImageScanningResolution(isr);
+        fingerprint.setHorizontalLineLength(hll);
+        fingerprint.setVerticalLineLength(vll);
+        fingerprint.setCompressionAlgorithm(String.valueOf(gca));
         fingerprint.setImageData(data);
-        fingerprint.setLogicalRecordLength(length.toString());
 
         return fingerprint;
     }
