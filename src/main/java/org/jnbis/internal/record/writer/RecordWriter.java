@@ -7,6 +7,7 @@ import java.io.Writer;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.Objects;
 
 import org.jnbis.internal.NistHelper;
 import org.jnbis.internal.NistHelper.RecordType;
@@ -60,24 +61,23 @@ public abstract class RecordWriter<T extends BaseRecord> {
         int bufferLength = removeTrailingSeparator ? buffer.size() - 1 : buffer.size();
         
         /* +1 for SEP_GS inserted after header, +1 for SEP_FS at end */
-        int intermediateLength = header.length() + 1 + bufferLength + 1;
+        int knownLength = header.length() + 1 + bufferLength + 1;
+        int lengthOfKnown = Objects.toString(knownLength).length();
+        
+        int totalLength = knownLength + lengthOfKnown;
+        int lengthOfTotal = Objects.toString(totalLength).length();
         
         /*
          * If the intermediate length is close to pushing the total length to
          * an extra character (ie, 9990 would become a total record length of
-         * 10002 for a Type-14 record) then we have to correct for this by iterating
-         * until we get the right total length value.
+         * 10002 for a Type-14 record) then we have to correct for this by adding
+         * 1 to the total length value.
          */
-        String fullHeader = null;
-        int totalLength = 0;
-        for (int i = 0; i < 10; i++) {
-            totalLength = intermediateLength + String.valueOf(intermediateLength + i).length();
-            fullHeader = header + totalLength;
-            
-            if (fullHeader.length() + bufferLength == totalLength) {
-                break;
-            }
+        if (lengthOfTotal != lengthOfKnown) {
+            totalLength++;
         }
+
+        String fullHeader = header + totalLength;
 
         out.write(fullHeader.getBytes());
         out.write(NistHelper.SEP_GS);
