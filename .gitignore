@@ -4,6 +4,9 @@ target
 #idea
 .idea/*
 *.iml
+.classpath
+.project
+.settings
 
 
 # Mobile Tools for Java (J2ME)

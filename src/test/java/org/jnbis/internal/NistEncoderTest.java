@@ -1,12 +1,9 @@
 package org.jnbis.internal;
 
-import static org.junit.Assert.assertArrayEquals;
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.*;
 
 import java.io.File;
 import java.io.IOException;
-import java.nio.file.Files;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -35,8 +32,8 @@ public class NistEncoderTest {
         NistHandler handler = Jnbis.nist();
         handler.setNist(sample);
         byte[] encoded = handler.encode();
-        File file = new File("/Users/mark/Temp", "encodeSample.nist");
-        Files.write(file.toPath(), encoded);
+        assertNotNull(encoded);
+        assertTrue(encoded.length > 0);
     }
     
     @Test
@@ -122,9 +119,6 @@ public class NistEncoderTest {
 
         byte[] encodedNist = builder.build()
                 .encode();
-        
-        File file = new File("/Users/mark/Temp", "encodeType4.nist");
-        Files.write(file.toPath(), encodedNist);
         
         Nist decoded = Jnbis.nist().decode(encodedNist);
         assertNotNull(decoded.getTransactionInfo());
@@ -230,10 +224,6 @@ public class NistEncoderTest {
         byte[] encodedNist = builder.build()
                 .encode();
         
-        File dir = new File("/Users/mark/Temp");
-        File file = new File(dir, "encodeType14.nist");
-        Files.write(file.toPath(), encodedNist);
-        
         Nist decoded = Jnbis.nist().decode(encodedNist);
         assertNotNull(decoded.getTransactionInfo());
         assertEquals(1, decoded.getTransactionInfo().getTransactionContent().getFirstRecordCategoryCode());
@@ -256,9 +246,6 @@ public class NistEncoderTest {
             assertEquals(orig.getHorizontalLineLength(), fp.getHorizontalLineLength());
             assertEquals(orig.getVerticalLineLength(), fp.getVerticalLineLength());
             assertEquals(orig.getCompressionAlgorithm(), fp.getCompressionAlgorithm());
-            if (fp.getImageData() != null) {
-                Jnbis.wsq().decode(fp.getImageData()).toPng().asFile(dir.getAbsolutePath() + "fp" + fp.getIdc() + ".png");
-            }
             assertArrayEquals(orig.getImageData(), fp.getImageData());
         }
     }
