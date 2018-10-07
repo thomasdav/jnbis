@@ -75,8 +75,8 @@ public class TransactionInfoWriter extends RecordWriter<TransactionInformation> 
         
         /* Optional */
         if (record.getDomainName() != null && !record.getDomainName().trim().isEmpty()) {
-            writeField(writer, 13, record.getDomainName());
-            writer.write(NistHelper.SEP_US); /* Required, even when DVN not present */
+            String domainName = record.getDomainName().concat(String.valueOf(NistHelper.SEP_US));
+            writeField(writer, 13, domainName);
             /*
              * NOTE: Don't currently support optional DVN (domain version number)
              */
