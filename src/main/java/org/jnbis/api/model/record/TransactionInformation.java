@@ -117,7 +117,7 @@ public class TransactionInformation extends BaseRecord {
         }
     }
 
-    // 1.002 - LEN
+    // 1.002 - VER
     @JsonProperty("version")
     private String version;
     // 1.003 - CNT
