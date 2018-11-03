@@ -1,3 +1,191 @@
+<!--<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"-->
+         <!--xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">-->
+    <!--<modelVersion>4.0.0</modelVersion>-->
+
+    <!--<parent>-->
+        <!--<groupId>org.sonatype.oss</groupId>-->
+        <!--<artifactId>oss-parent</artifactId>-->
+        <!--<version>7</version>-->
+    <!--</parent>-->
+
+
+    <!--<groupId>com.github.thomasdav</groupId>-->
+    <!--<artifactId>jnbis</artifactId>-->
+    <!--<version>3.0.4</version>-->
+    <!--<name>JNBIS</name>-->
+    <!--<description>Java implementation of NIST Biometric Image Decoder. Based on NBIS V1.1.0. Forked from https://github.com/mhshams/jnbis</description>-->
+    <!--<url>https://github.com/thomasdav/jnbis</url>-->
+    <!--<licenses>-->
+        <!--<license>-->
+            <!--<name>The Apache Software License, Version 2.0</name>-->
+            <!--<url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>-->
+            <!--<distribution>repo</distribution>-->
+            <!--<comments>A business-friendly OSS license</comments>-->
+        <!--</license>-->
+    <!--</licenses>-->
+
+    <!--<packaging>jar</packaging>-->
+
+    <!--<scm>-->
+        <!--<url>https://github.com/thomasdav/jnbis</url>-->
+        <!--<connection>scm:git:git://github.com/thomasdav/jnbis.git</connection>-->
+        <!--<developerConnection>scm:git:git@github.com:thomasdav/jnbis.git</developerConnection>-->
+    <!--</scm>-->
+
+    <!--<developers>-->
+        <!--<developer>-->
+            <!--<email>dth0@me.com</email>-->
+            <!--<name>Thomas David</name>-->
+            <!--<url>https://github.com/thomasdav</url>-->
+            <!--<id>thomasdav</id>-->
+        <!--</developer>-->
+    <!--</developers>-->
+
+    <!--<properties>-->
+        <!--<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>-->
+    <!--</properties>-->
+
+    <!--<dependencies>-->
+        <!--<dependency>-->
+            <!--<groupId>com.fasterxml.jackson.core</groupId>-->
+            <!--<artifactId>jackson-databind</artifactId>-->
+            <!--<version>2.5.4</version>-->
+        <!--</dependency>-->
+        <!--<dependency>-->
+            <!--<groupId>junit</groupId>-->
+            <!--<artifactId>junit</artifactId>-->
+            <!--<version>4.12</version>-->
+            <!--<scope>test</scope>-->
+        <!--</dependency>-->
+    <!--</dependencies>-->
+
+
+
+    <!--<build>-->
+        <!--<plugins>-->
+            <!--<plugin>-->
+                <!--<groupId>com.github.github</groupId>-->
+                <!--<artifactId>site-maven-plugin</artifactId>-->
+                <!--<version>0.7</version>-->
+                <!--<configuration>-->
+                    <!--<message>Building site for ${project.version}</message>-->
+                    <!--<server>github</server>-->
+                <!--</configuration>-->
+                <!--<executions>-->
+                    <!--<execution>-->
+                        <!--<goals>-->
+                            <!--<goal>site</goal>-->
+                        <!--</goals>-->
+                        <!--<phase>site</phase>-->
+                    <!--</execution>-->
+                <!--</executions>-->
+            <!--</plugin>-->
+            <!--<plugin>-->
+                <!--<groupId>org.apache.maven.plugins</groupId>-->
+                <!--<artifactId>maven-site-plugin</artifactId>-->
+                <!--<version>3.3</version>-->
+                <!--<configuration>-->
+                    <!--<-->
+                <!--</configuration>-->
+                <!--<project>-->
+                    <!--<reporting>-->
+                        <!--<plugins>-->
+                            <!--<plugin>-->
+                                <!--<groupId>org.apache.maven.plugins</groupId>-->
+                                <!--<artifactId>maven-project-info-reports-plugin</artifactId>-->
+                                <!--<version>2.7</version>-->
+                                <!--<configuration>-->
+                                    <!--<dependencyDetailsEnabled>true</dependencyDetailsEnabled>-->
+                                    <!--<dependencyLocationsEnabled>true</dependencyLocationsEnabled>-->
+                                <!--</configuration>-->
+                            <!--</plugin>-->
+                            <!--<plugin>-->
+                                <!--<groupId>org.apache.maven.plugins</groupId>-->
+                                <!--<artifactId>maven-javadoc-plugin</artifactId>-->
+                                <!--<version>2.7</version>-->
+                            <!--</plugin>-->
+                            <!--<plugin>-->
+                                <!--<groupId>org.apache.maven.plugins</groupId>-->
+                                <!--<artifactId>maven-surefire-report-plugin</artifactId>-->
+                                <!--<version>2.6</version>-->
+                            <!--</plugin>-->
+                            <!--<plugin>-->
+                                <!--<groupId>org.apache.maven.plugins</groupId>-->
+                                <!--<artifactId>maven-checkstyle-plugin</artifactId>-->
+                                <!--<version>2.6</version>-->
+                            <!--</plugin>-->
+                        <!--</plugins>-->
+                    <!--</reporting>-->
+                <!--</project>-->
+            <!--</plugin>-->
+            <!--<plugin>-->
+                <!--<groupId>org.apache.maven.plugins</groupId>-->
+                <!--<artifactId>maven-compiler-plugin</artifactId>-->
+                <!--<configuration>-->
+                    <!--<source>1.8</source>-->
+                    <!--<target>1.8</target>-->
+                <!--</configuration>-->
+            <!--</plugin>-->
+            <!--<plugin>-->
+                <!--<groupId>org.apache.maven.plugins</groupId>-->
+                <!--<artifactId>maven-jar-plugin</artifactId>-->
+                <!--<configuration>-->
+                    <!--<archive>-->
+                        <!--<manifest>-->
+                            <!--<addDefaultImplementationEntries>true</addDefaultImplementationEntries>-->
+                            <!--<addDefaultSpecificationEntries>true</addDefaultSpecificationEntries>-->
+                        <!--</manifest>-->
+                    <!--</archive>-->
+                <!--</configuration>-->
+            <!--</plugin>-->
+            <!--<plugin>-->
+                <!--<groupId>org.apache.maven.plugins</groupId>-->
+                <!--<artifactId>maven-javadoc-plugin</artifactId>-->
+                <!--<executions>-->
+                    <!--<execution>-->
+                        <!--<goals>-->
+                            <!--<goal>jar</goal>-->
+                        <!--</goals>-->
+                    <!--</execution>-->
+                <!--</executions>-->
+            <!--</plugin>-->
+            <!--<plugin>-->
+                <!--<groupId>org.apache.maven.plugins</groupId>-->
+                <!--<artifactId>maven-gpg-plugin</artifactId>-->
+                <!--<version>1.6</version>-->
+                <!--<executions>-->
+                    <!--<execution>-->
+                        <!--<id>sign-artifacts</id>-->
+                        <!--<phase>verify</phase>-->
+                        <!--<goals>-->
+                            <!--<goal>sign</goal>-->
+                        <!--</goals>-->
+                    <!--</execution>-->
+                <!--</executions>-->
+            <!--</plugin>-->
+            <!--<plugin>-->
+                <!--<groupId>org.apache.maven.plugins</groupId>-->
+                <!--<artifactId>maven-source-plugin</artifactId>-->
+                <!--<executions>-->
+                    <!--<execution>-->
+                        <!--<goals>-->
+                            <!--<goal>jar</goal>-->
+                        <!--</goals>-->
+                    <!--</execution>-->
+                <!--</executions>-->
+            <!--</plugin>-->
+        <!--</plugins>-->
+    <!--</build>-->
+<!--</project>-->
+
+
+
+
+
+
+
+
+
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 
     <modelVersion>4.0.0</modelVersion>
@@ -8,14 +196,14 @@
         <version>7</version>
     </parent>
 
-    <groupId>com.github.mhshams</groupId>
+    <groupId>com.github.thomasdav</groupId>
     <artifactId>jnbis</artifactId>
-    <version>3.0.3</version>
+    <version>3.0.4</version>
     <packaging>jar</packaging>
 
     <name>JNBIS</name>
-    <description>Java implementation of NIST Biometric Image Decoder. Based on NBIS V1.1.0</description>
-    <url>https://github.com/mhshams/jnbis</url>
+    <description>Java implementation of NIST Biometric Image Decoder. Based on NBIS V1.1.0. Forked from https://github.com/mhshams/jnbis</description>
+    <url>https://github.com/thomasdav/jnbis</url>
     <licenses>
         <license>
             <name>The Apache Software License, Version 2.0</name>
@@ -25,11 +213,17 @@
         </license>
     </licenses>
     <scm>
-        <connection>scm:git:git@github.com:argonaut-nz/jnbis.git</connection>
-        <developerConnection>scm:git:git@github.com:argonaut-nz/jnbis.git</developerConnection>
-        <url>git@github.com:argonaut-nz/jnbis.git</url>
+        <connection>scm:git:git@github.com:thomasdav/jnbis.git</connection>
+        <developerConnection>scm:git:git@github.com:thomasdav/jnbis.git</developerConnection>
+        <url>https://github.com/thomasdav/jnbis</url>
     </scm>
     <developers>
+        <developer>
+            <email>dth0@me.com</email>
+            <name>Thomas David</name>
+            <url>https://github.com/thomasdav</url>
+            <id>thomasdav</id>
+            </developer>
         <developer>
             <id>mhshams</id>
             <name>Mohammad Shamsi</name>
@@ -43,34 +237,41 @@
             <organizationUrl>http://www.argonautltd.co.nz</organizationUrl>
         </developer>
     </developers>
+    <!--<distributionManagement>-->
+        <!--<repository>-->
+            <!--<id>ossrh</id>-->
+            <!--<url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>-->
+        <!--</repository>-->
+    <!--</distributionManagement>-->
+
     <distributionManagement>
         <repository>
-            <id>ossrh</id>
-            <url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
+            <id>internal.repo</id>
+            <name>Temporary Staging Repository</name>
+            <url>file://${project.build.directory}/mvn-repo</url>
         </repository>
     </distributionManagement>
 
     <properties>
-        <jdk.version>1.8</jdk.version>
-        <junit.version>4.12</junit.version>
-        <jackson.version>2.5.4</jackson.version>
-        <maven.compiler.verison>3.3</maven.compiler.verison>
-        <maven.source.verison>2.4</maven.source.verison>
-        <maven.javadoc.verison>2.10.3</maven.javadoc.verison>
-        <maven.gpg.verison>1.6</maven.gpg.verison>
-        <jgitflow.version>1.0-m5.1</jgitflow.version>
+        <github.global.server>github</github.global.server>
     </properties>
 
     <dependencies>
         <dependency>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-compiler-plugin</artifactId>
+            <version>3.8.0</version>
+            <type>maven-plugin</type>
+        </dependency>
+        <dependency>
             <groupId>com.fasterxml.jackson.core</groupId>
             <artifactId>jackson-databind</artifactId>
-            <version>${jackson.version}</version>
+            <version>2.5.4</version>
         </dependency>
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
-            <version>${junit.version}</version>
+            <version>4.12</version>
             <scope>test</scope>
         </dependency>
     </dependencies>
@@ -81,17 +282,17 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
-                <version>${maven.compiler.verison}</version>
+                <version>3.8.0</version>
                 <configuration>
-                    <source>${jdk.version}</source>
-                    <target>${jdk.version}</target>
+                    <source>1.8</source>
+                    <target>1.8</target>
                     <optimize>true</optimize>
                 </configuration>
             </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-source-plugin</artifactId>
-                <version>${maven.source.verison}</version>
+                <version>3.0.1</version>
                 <executions>
                     <execution>
                         <id>attach-sources</id>
@@ -102,26 +303,33 @@
                 </executions>
             </plugin>
             <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-javadoc-plugin</artifactId>
-                <version>${maven.javadoc.verison}</version>
-                <executions>
-                    <execution>
-                        <id>attach-javadocs</id>
-                        <goals>
-                            <goal>jar</goal>
-                        </goals>
-                    </execution>
-                </executions>
+                <artifactId>maven-deploy-plugin</artifactId>
+                <version>3.0.0-M1</version>
+                <configuration>
+                    <altDeploymentRepository>internal.repo::file://${project.build.directory}/mvn-repo</altDeploymentRepository>
+                </configuration>
             </plugin>
+            <!--<plugin>-->
+                <!--<groupId>org.apache.maven.plugins</groupId>-->
+                <!--<artifactId>maven-javadoc-plugin</artifactId>-->
+                <!--<version>3.0.1</version>-->
+                <!--<executions>-->
+                    <!--<execution>-->
+                        <!--<id>attach-javadocs</id>-->
+                        <!--<goals>-->
+                            <!--<goal>jar</goal>-->
+                        <!--</goals>-->
+                    <!--</execution>-->
+                <!--</executions>-->
+            <!--</plugin>-->
         </plugins>
     </build>
     <profiles>
         <profile>
             <!--
-            - mvn -Ddnr jgitflow:release-start
-            - mvn -Ddnr jgitflow:release-finish
-            - git push tags, master and develop
+             - mvn -Ddnr jgitflow:release-start
+             - mvn -Ddnr jgitflow:release-finish
+             - git push tags, master and develop
             -->
             <id>deploy-new-release</id>
             <activation>
@@ -134,7 +342,7 @@
                     <plugin>
                         <groupId>org.apache.maven.plugins</groupId>
                         <artifactId>maven-gpg-plugin</artifactId>
-                        <version>${maven.gpg.verison}</version>
+                        <version>1.6</version>
                         <executions>
                             <execution>
                                 <id>sign-artifacts</id>
@@ -148,7 +356,40 @@
                     <plugin>
                         <groupId>external.atlassian.jgitflow</groupId>
                         <artifactId>jgitflow-maven-plugin</artifactId>
-                        <version>${jgitflow.version}</version>
+                        <version>1.0-m5.1</version>
+                    </plugin>
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-site-plugin</artifactId>
+                        <version>3.3</version>
+                    </plugin>
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-project-info-reports-plugin</artifactId>
+                        <version>2.7</version>
+                    </plugin>
+                    <plugin>
+                        <groupId>com.github.github</groupId>
+                        <artifactId>site-maven-plugin</artifactId>
+                        <version>0.12</version>
+                        <configuration>
+                            <message>Maven artifacts for ${project.version}</message>  <!-- git commit message -->
+                            <noJekyll>true</noJekyll>                                  <!-- disable webpage processing -->
+                            <outputDirectory>${project.build.directory}/mvn-repo</outputDirectory> <!-- matches distribution management repository url above -->
+                            <branch>refs/heads/mvn-repo</branch>                       <!-- remote branch name -->
+                            <includes><include>**/*</include></includes>
+                            <repositoryName>jnbis</repositoryName>      <!-- github repo name -->
+                            <repositoryOwner>thomasdav</repositoryOwner>    <!-- github username  -->
+                        </configuration>
+                        <executions>
+                            <!-- run site-maven-plugin's 'site' target as part of the build's normal 'deploy' phase -->
+                            <execution>
+                                <goals>
+                                    <goal>site</goal>
+                                </goals>
+                                <phase>deploy</phase>
+                            </execution>
+                        </executions>
                     </plugin>
                 </plugins>
             </build>
