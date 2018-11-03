@@ -1,191 +1,3 @@
-<!--<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"-->
-         <!--xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">-->
-    <!--<modelVersion>4.0.0</modelVersion>-->
-
-    <!--<parent>-->
-        <!--<groupId>org.sonatype.oss</groupId>-->
-        <!--<artifactId>oss-parent</artifactId>-->
-        <!--<version>7</version>-->
-    <!--</parent>-->
-
-
-    <!--<groupId>com.github.thomasdav</groupId>-->
-    <!--<artifactId>jnbis</artifactId>-->
-    <!--<version>3.0.4</version>-->
-    <!--<name>JNBIS</name>-->
-    <!--<description>Java implementation of NIST Biometric Image Decoder. Based on NBIS V1.1.0. Forked from https://github.com/mhshams/jnbis</description>-->
-    <!--<url>https://github.com/thomasdav/jnbis</url>-->
-    <!--<licenses>-->
-        <!--<license>-->
-            <!--<name>The Apache Software License, Version 2.0</name>-->
-            <!--<url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>-->
-            <!--<distribution>repo</distribution>-->
-            <!--<comments>A business-friendly OSS license</comments>-->
-        <!--</license>-->
-    <!--</licenses>-->
-
-    <!--<packaging>jar</packaging>-->
-
-    <!--<scm>-->
-        <!--<url>https://github.com/thomasdav/jnbis</url>-->
-        <!--<connection>scm:git:git://github.com/thomasdav/jnbis.git</connection>-->
-        <!--<developerConnection>scm:git:git@github.com:thomasdav/jnbis.git</developerConnection>-->
-    <!--</scm>-->
-
-    <!--<developers>-->
-        <!--<developer>-->
-            <!--<email>dth0@me.com</email>-->
-            <!--<name>Thomas David</name>-->
-            <!--<url>https://github.com/thomasdav</url>-->
-            <!--<id>thomasdav</id>-->
-        <!--</developer>-->
-    <!--</developers>-->
-
-    <!--<properties>-->
-        <!--<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>-->
-    <!--</properties>-->
-
-    <!--<dependencies>-->
-        <!--<dependency>-->
-            <!--<groupId>com.fasterxml.jackson.core</groupId>-->
-            <!--<artifactId>jackson-databind</artifactId>-->
-            <!--<version>2.5.4</version>-->
-        <!--</dependency>-->
-        <!--<dependency>-->
-            <!--<groupId>junit</groupId>-->
-            <!--<artifactId>junit</artifactId>-->
-            <!--<version>4.12</version>-->
-            <!--<scope>test</scope>-->
-        <!--</dependency>-->
-    <!--</dependencies>-->
-
-
-
-    <!--<build>-->
-        <!--<plugins>-->
-            <!--<plugin>-->
-                <!--<groupId>com.github.github</groupId>-->
-                <!--<artifactId>site-maven-plugin</artifactId>-->
-                <!--<version>0.7</version>-->
-                <!--<configuration>-->
-                    <!--<message>Building site for ${project.version}</message>-->
-                    <!--<server>github</server>-->
-                <!--</configuration>-->
-                <!--<executions>-->
-                    <!--<execution>-->
-                        <!--<goals>-->
-                            <!--<goal>site</goal>-->
-                        <!--</goals>-->
-                        <!--<phase>site</phase>-->
-                    <!--</execution>-->
-                <!--</executions>-->
-            <!--</plugin>-->
-            <!--<plugin>-->
-                <!--<groupId>org.apache.maven.plugins</groupId>-->
-                <!--<artifactId>maven-site-plugin</artifactId>-->
-                <!--<version>3.3</version>-->
-                <!--<configuration>-->
-                    <!--<-->
-                <!--</configuration>-->
-                <!--<project>-->
-                    <!--<reporting>-->
-                        <!--<plugins>-->
-                            <!--<plugin>-->
-                                <!--<groupId>org.apache.maven.plugins</groupId>-->
-                                <!--<artifactId>maven-project-info-reports-plugin</artifactId>-->
-                                <!--<version>2.7</version>-->
-                                <!--<configuration>-->
-                                    <!--<dependencyDetailsEnabled>true</dependencyDetailsEnabled>-->
-                                    <!--<dependencyLocationsEnabled>true</dependencyLocationsEnabled>-->
-                                <!--</configuration>-->
-                            <!--</plugin>-->
-                            <!--<plugin>-->
-                                <!--<groupId>org.apache.maven.plugins</groupId>-->
-                                <!--<artifactId>maven-javadoc-plugin</artifactId>-->
-                                <!--<version>2.7</version>-->
-                            <!--</plugin>-->
-                            <!--<plugin>-->
-                                <!--<groupId>org.apache.maven.plugins</groupId>-->
-                                <!--<artifactId>maven-surefire-report-plugin</artifactId>-->
-                                <!--<version>2.6</version>-->
-                            <!--</plugin>-->
-                            <!--<plugin>-->
-                                <!--<groupId>org.apache.maven.plugins</groupId>-->
-                                <!--<artifactId>maven-checkstyle-plugin</artifactId>-->
-                                <!--<version>2.6</version>-->
-                            <!--</plugin>-->
-                        <!--</plugins>-->
-                    <!--</reporting>-->
-                <!--</project>-->
-            <!--</plugin>-->
-            <!--<plugin>-->
-                <!--<groupId>org.apache.maven.plugins</groupId>-->
-                <!--<artifactId>maven-compiler-plugin</artifactId>-->
-                <!--<configuration>-->
-                    <!--<source>1.8</source>-->
-                    <!--<target>1.8</target>-->
-                <!--</configuration>-->
-            <!--</plugin>-->
-            <!--<plugin>-->
-                <!--<groupId>org.apache.maven.plugins</groupId>-->
-                <!--<artifactId>maven-jar-plugin</artifactId>-->
-                <!--<configuration>-->
-                    <!--<archive>-->
-                        <!--<manifest>-->
-                            <!--<addDefaultImplementationEntries>true</addDefaultImplementationEntries>-->
-                            <!--<addDefaultSpecificationEntries>true</addDefaultSpecificationEntries>-->
-                        <!--</manifest>-->
-                    <!--</archive>-->
-                <!--</configuration>-->
-            <!--</plugin>-->
-            <!--<plugin>-->
-                <!--<groupId>org.apache.maven.plugins</groupId>-->
-                <!--<artifactId>maven-javadoc-plugin</artifactId>-->
-                <!--<executions>-->
-                    <!--<execution>-->
-                        <!--<goals>-->
-                            <!--<goal>jar</goal>-->
-                        <!--</goals>-->
-                    <!--</execution>-->
-                <!--</executions>-->
-            <!--</plugin>-->
-            <!--<plugin>-->
-                <!--<groupId>org.apache.maven.plugins</groupId>-->
-                <!--<artifactId>maven-gpg-plugin</artifactId>-->
-                <!--<version>1.6</version>-->
-                <!--<executions>-->
-                    <!--<execution>-->
-                        <!--<id>sign-artifacts</id>-->
-                        <!--<phase>verify</phase>-->
-                        <!--<goals>-->
-                            <!--<goal>sign</goal>-->
-                        <!--</goals>-->
-                    <!--</execution>-->
-                <!--</executions>-->
-            <!--</plugin>-->
-            <!--<plugin>-->
-                <!--<groupId>org.apache.maven.plugins</groupId>-->
-                <!--<artifactId>maven-source-plugin</artifactId>-->
-                <!--<executions>-->
-                    <!--<execution>-->
-                        <!--<goals>-->
-                            <!--<goal>jar</goal>-->
-                        <!--</goals>-->
-                    <!--</execution>-->
-                <!--</executions>-->
-            <!--</plugin>-->
-        <!--</plugins>-->
-    <!--</build>-->
-<!--</project>-->
-
-
-
-
-
-
-
-
-
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 
     <modelVersion>4.0.0</modelVersion>
@@ -199,11 +11,13 @@
     <groupId>com.github.thomasdav</groupId>
     <artifactId>jnbis</artifactId>
     <version>3.0.4</version>
+
     <packaging>jar</packaging>
 
     <name>JNBIS</name>
     <description>Java implementation of NIST Biometric Image Decoder. Based on NBIS V1.1.0. Forked from https://github.com/mhshams/jnbis</description>
     <url>https://github.com/thomasdav/jnbis</url>
+
     <licenses>
         <license>
             <name>The Apache Software License, Version 2.0</name>
@@ -212,15 +26,17 @@
             <comments>A business-friendly OSS license</comments>
         </license>
     </licenses>
+
     <scm>
         <connection>scm:git:git@github.com:thomasdav/jnbis.git</connection>
         <developerConnection>scm:git:git@github.com:thomasdav/jnbis.git</developerConnection>
         <url>https://github.com/thomasdav/jnbis</url>
     </scm>
+
     <developers>
         <developer>
             <email>dth0@me.com</email>
-            <name>Thomas David</name>
+            <name>David Thomas</name>
             <url>https://github.com/thomasdav</url>
             <id>thomasdav</id>
             </developer>
