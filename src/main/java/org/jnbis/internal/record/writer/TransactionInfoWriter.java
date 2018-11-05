@@ -28,7 +28,7 @@ public class TransactionInfoWriter extends RecordWriter<TransactionInformation> 
         ByteArrayOutputStream buffer = new ByteArrayOutputStream();
         Writer writer = new OutputStreamWriter(buffer, NistHelper.USASCII);
 
-        writeField(writer, 2, "0500");
+        writeField(writer, 2, record.getVersion());
 
         TransactionContent cnt = record.getTransactionContent();
         writer.write(fieldTag(3));
