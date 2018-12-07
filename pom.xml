@@ -10,7 +10,7 @@
 
     <groupId>com.github.thomasdav</groupId>
     <artifactId>jnbis</artifactId>
-    <version>3.0.4</version>
+    <version>3.0.5</version>
 
     <packaging>jar</packaging>
 
@@ -202,6 +202,8 @@
                             <server>github</server>
                             <repositoryName>jnbis</repositoryName>      <!-- github repo name -->
                             <repositoryOwner>thomasdav</repositoryOwner>    <!-- github username  -->
+                            <userName>thomasdav</userName>
+                            <password>9H1xgqhb57+git</password>
                         </configuration>
                         <executions>
                             <!-- run site-maven-plugin's 'site' target as part of the build's normal 'deploy' phase -->
