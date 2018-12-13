@@ -153,6 +153,9 @@ public class TransactionInformation extends BaseRecord {
     // 1.013 - DOM
     @JsonProperty("domain_name")
     private String domainName;
+    // 1.013 - DVN
+    @JsonProperty("domain_name_version")
+    private String domainNameVersion;
     // 1.014 - GMT
     @JsonProperty("greenwich_mean_time")
     private String greenwichMeanTime;
@@ -252,8 +255,16 @@ public class TransactionInformation extends BaseRecord {
         return domainName;
     }
 
+    public String getDomainNameVersion() {
+        return domainNameVersion;
+    }
+
     public void setDomainName(String domainName) {
         this.domainName = domainName;
+    }
+
+    public void setDomainNameVersion(String domainNameVersion) {
+        this.domainNameVersion = domainNameVersion;
     }
 
     public String getGreenwichMeanTime() {

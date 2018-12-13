@@ -83,10 +83,8 @@ public class TransactionInfoReader extends RecordReader {
                 Token st = new Token(field.value);
                 Field sf = nextInformationItem(st);
                 transaction.setDomainName(sf.asString());
-                /*
-                 * NOTE: Don't currently support optional DVN (domain version number)
-                 * Reading one more item of information would give the DVN
-                 */
+                sf = nextInformationItem(st);
+                transaction.setDomainNameVersion(sf.asString());
                 break;
             case 14:
                 transaction.setGreenwichMeanTime(value);

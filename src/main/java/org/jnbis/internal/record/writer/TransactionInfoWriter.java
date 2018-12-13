@@ -75,11 +75,11 @@ public class TransactionInfoWriter extends RecordWriter<TransactionInformation> 
         
         /* Optional */
         if (record.getDomainName() != null && !record.getDomainName().trim().isEmpty()) {
-            String domainName = record.getDomainName().concat(String.valueOf(NistHelper.SEP_US));
-            writeField(writer, 13, domainName);
-            /*
-             * NOTE: Don't currently support optional DVN (domain version number)
-             */
+            writer.write(fieldTag(13));
+            writer.write(record.getDomainName());
+            writer.write(NistHelper.SEP_US);
+            writer.write(record.getDomainNameVersion());
+            writer.write(NistHelper.SEP_GS);
         }
 
         /* Optional */
@@ -92,7 +92,7 @@ public class TransactionInfoWriter extends RecordWriter<TransactionInformation> 
         writer.write(String.valueOf(3));
         writer.write(NistHelper.SEP_US);
         writer.write(NistHelper.UTF8.name());
-        /* CSV not currently supported */ 
+        /* CSV not currently supported */
         writer.write(NistHelper.SEP_US); /* Required, even when DVN not present */
 
         writer.flush();
