@@ -43,7 +43,7 @@ public class TransactionInfoWriter extends RecordWriter<TransactionInformation> 
             InfoDesignation idc = idcs.get(idcIndex);
             writer.write(String.valueOf(idc.getRecordCategoryCode()));
             writer.write(NistHelper.SEP_US);
-            writer.write(String.format("%d", idc.getInformationDesignationCharacter()));
+            writer.write(String.format("%02d", idc.getInformationDesignationCharacter()));
             if (idcIndex < idcCount - 1) {
                 writer.write(NistHelper.SEP_RS);
             }
