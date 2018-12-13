@@ -84,16 +84,20 @@ public class TransactionInfoWriter extends RecordWriter<TransactionInformation> 
 
         /* Optional */
         if (record.getGreenwichMeanTime() != null && !record.getGreenwichMeanTime().trim().isEmpty()) {
-            writeField(writer, 14, record.getGreenwichMeanTime());
+            writer.write(fieldTag(14));
+            writer.write(record.getGreenwichMeanTime());
         }
 
-        /* Character Encoding (DCS) */
-        writer.write(fieldTag(15));
-        writer.write(String.valueOf(3));
-        writer.write(NistHelper.SEP_US);
-        writer.write(NistHelper.UTF8.name());
-        /* CSV not currently supported */
-        writer.write(NistHelper.SEP_US); /* Required, even when DVN not present */
+        if (record.getDirectoryOfCharsets() != null && !record.getDirectoryOfCharsets().trim().isEmpty()) {
+            /* Character Encoding (DCS) */
+            writer.write(NistHelper.SEP_GS);
+            writer.write(fieldTag(15));
+            writer.write(String.valueOf(3));
+            writer.write(NistHelper.SEP_US);
+            writer.write(NistHelper.UTF8.name());
+            /* CSV not currently supported */
+            writer.write(NistHelper.SEP_US); /* Required, even when DVN not present */
+        }
 
         writer.flush();
         
