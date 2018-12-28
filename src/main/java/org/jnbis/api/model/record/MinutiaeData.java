@@ -23,6 +23,9 @@ public class MinutiaeData extends BaseImageRecord {
     private String deltaPosition;
     // 9.010 - MIN
     private String numberOfMinutiae;
+    // 9.012 - MRC
+    private String minutiaeAndRidgeCountData;
+
 
     public String getImpressionType() {
         return impressionType;
@@ -86,5 +89,13 @@ public class MinutiaeData extends BaseImageRecord {
 
     public void setNumberOfMinutiae(String numberOfMinutiae) {
         this.numberOfMinutiae = numberOfMinutiae;
+    }
+
+    public void setMinutiaeAndRidgeCountData(String minutiaeAndRidgeCountData) {
+        this.minutiaeAndRidgeCountData = minutiaeAndRidgeCountData;
+    }
+
+    public String getMinutiaeAndRidgeCountData() {
+        return minutiaeAndRidgeCountData;
     }
 }

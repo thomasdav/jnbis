@@ -80,7 +80,11 @@ public class TransactionInfoReader extends RecordReader {
                 transaction.setNominalTransmittingResolution(value);
                 break;
             case 13:
-                transaction.setDomainName(value);
+                Token st = new Token(field.value);
+                Field sf = nextInformationItem(st);
+                transaction.setDomainName(sf.asString());
+                sf = nextInformationItem(st);
+                transaction.setDomainNameVersion(sf.asString());
                 break;
             case 14:
                 transaction.setGreenwichMeanTime(value);

@@ -28,7 +28,7 @@ public class TransactionInfoWriter extends RecordWriter<TransactionInformation> 
         ByteArrayOutputStream buffer = new ByteArrayOutputStream();
         Writer writer = new OutputStreamWriter(buffer, NistHelper.USASCII);
 
-        writeField(writer, 2, "0500");
+        writeField(writer, 2, record.getVersion());
 
         TransactionContent cnt = record.getTransactionContent();
         writer.write(fieldTag(3));
@@ -43,7 +43,7 @@ public class TransactionInfoWriter extends RecordWriter<TransactionInformation> 
             InfoDesignation idc = idcs.get(idcIndex);
             writer.write(String.valueOf(idc.getRecordCategoryCode()));
             writer.write(NistHelper.SEP_US);
-            writer.write(String.format("%d", idc.getInformationDesignationCharacter()));
+            writer.write(String.format("%02d", idc.getInformationDesignationCharacter()));
             if (idcIndex < idcCount - 1) {
                 writer.write(NistHelper.SEP_RS);
             }
@@ -75,25 +75,29 @@ public class TransactionInfoWriter extends RecordWriter<TransactionInformation> 
         
         /* Optional */
         if (record.getDomainName() != null && !record.getDomainName().trim().isEmpty()) {
-            writeField(writer, 13, record.getDomainName());
-            writer.write(NistHelper.SEP_US); /* Required, even when DVN not present */
-            /*
-             * NOTE: Don't currently support optional DVN (domain version number)
-             */
+            writer.write(fieldTag(13));
+            writer.write(record.getDomainName());
+            writer.write(NistHelper.SEP_US);
+            writer.write(record.getDomainNameVersion());
+            writer.write(NistHelper.SEP_GS);
         }
 
         /* Optional */
         if (record.getGreenwichMeanTime() != null && !record.getGreenwichMeanTime().trim().isEmpty()) {
-            writeField(writer, 14, record.getGreenwichMeanTime());
+            writer.write(fieldTag(14));
+            writer.write(record.getGreenwichMeanTime());
         }
 
-        /* Character Encoding (DCS) */
-        writer.write(fieldTag(15));
-        writer.write(String.valueOf(3));
-        writer.write(NistHelper.SEP_US);
-        writer.write(NistHelper.UTF8.name());
-        /* CSV not currently supported */ 
-        writer.write(NistHelper.SEP_US); /* Required, even when DVN not present */
+        if (record.getDirectoryOfCharsets() != null && !record.getDirectoryOfCharsets().trim().isEmpty()) {
+            /* Character Encoding (DCS) */
+            writer.write(NistHelper.SEP_GS);
+            writer.write(fieldTag(15));
+            writer.write(String.valueOf(3));
+            writer.write(NistHelper.SEP_US);
+            writer.write(NistHelper.UTF8.name());
+            /* CSV not currently supported */
+            writer.write(NistHelper.SEP_US); /* Required, even when DVN not present */
+        }
 
         writer.flush();
         
