@@ -202,8 +202,8 @@
                             <server>github</server>
                             <repositoryName>jnbis</repositoryName>      <!-- github repo name -->
                             <repositoryOwner>thomasdav</repositoryOwner>    <!-- github username  -->
-                            <userName>thomasdav</userName>
-                            <password>9H1xgqhb57+git</password>
+                            <userName>*********</userName>
+                            <password>*********</password>
                         </configuration>
                         <executions>
                             <!-- run site-maven-plugin's 'site' target as part of the build's normal 'deploy' phase -->
